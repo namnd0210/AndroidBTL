@@ -40,7 +40,6 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull PopularFoodViewHolder holder, int position) {
-
         holder.foodImage.setImageResource(list.get(position).getImageUrl());
         holder.name.setText(list.get(position).getName());
         holder.price.setText(list.get(position).getPrice());
@@ -52,8 +51,6 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
                 context.startActivity(i);
             }
         });
-
-
     }
 
     @Override
@@ -63,8 +60,6 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
 
 
     public static final class PopularFoodViewHolder extends RecyclerView.ViewHolder{
-
-
         ImageView foodImage;
         TextView price, name;
 
@@ -74,9 +69,6 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
             foodImage = itemView.findViewById(R.id.food_image);
             price = itemView.findViewById(R.id.price);
             name = itemView.findViewById(R.id.name);
-
-
-
         }
     }
 

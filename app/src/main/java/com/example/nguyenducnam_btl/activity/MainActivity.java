@@ -38,8 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-
     BottomAppBar navigation;
     ViewPager viewPager;
     FloatingActionButton fab;

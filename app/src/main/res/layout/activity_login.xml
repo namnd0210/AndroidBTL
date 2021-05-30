@@ -1,48 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layout_bg"
-    android:orientation="vertical">
-    <TextView
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOGIN FORM"/>
-    <EditText
-        android:hint="Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtEmail"/>
-    <EditText
-        android:hint="Password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPass"
-        android:inputType="textPassword"/>
+    android:background="@drawable/layout_bg">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <Button
-            android:id="@+id/btLogin"
-            android:background="#FF9800"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
             android:text="LOGIN"
-            android:layout_marginBottom="10dp"/>
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btRegister"
-            android:background="#FFEB3B"
+        <EditText
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTER" />
+            android:layout_marginTop="100dp"
+            android:hint="Email" />
 
+        <EditText
+            android:id="@+id/txtPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FF9800"
+                android:text="LOGIN" />
+
+            <Button
+                android:id="@+id/btRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFEB3B"
+                android:text="REGISTER" />
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

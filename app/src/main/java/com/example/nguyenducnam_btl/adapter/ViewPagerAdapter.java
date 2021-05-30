@@ -25,7 +25,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
             case 1: return new Map();
         }
-
         return null;
     }
 

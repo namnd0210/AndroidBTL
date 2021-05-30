@@ -30,7 +30,7 @@ public class Add extends AppCompatActivity {
     private Integer TodoNum = new Random().nextInt();
     private String keytodo = Integer.toString(TodoNum);
 
-    private EditText etName, etPrice, etDate, etDescription;
+    private EditText etName, etPrice, etDescription;
     private ImageView  btnBack;
     private RatingBar rating;
     private Button btnAdd;
@@ -44,7 +44,6 @@ public class Add extends AppCompatActivity {
 
         initView();
 
-        handleDateBtn();
         handleSaveBtn();
         handleBackBtn();
     }
@@ -103,31 +102,9 @@ public class Add extends AppCompatActivity {
         });
     }
 
-    private void handleDateBtn() {
-        etDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                mYear = c.get(Calendar.YEAR);
-                mMonth = c.get(Calendar.MONTH);
-                mDay = c.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Add.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                etDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                            }
-                        }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-            }
-        });
-    }
-
-
     private void initView() {
         etName = findViewById(R.id.etName);
         etPrice = findViewById(R.id.etPrice);
-        etDate = findViewById(R.id.etDate);
         etDescription = findViewById(R.id.etDescription);
         rating = findViewById(R.id.rating);
 

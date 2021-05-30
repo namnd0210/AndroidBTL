@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.nguyenducnam_btl.R;
-import com.example.nguyenducnam_btl.activity.Add;
 import com.example.nguyenducnam_btl.activity.Info;
 import com.example.nguyenducnam_btl.adapter.AsiaFoodAdapter;
 import com.example.nguyenducnam_btl.adapter.PopularFoodAdapter;
@@ -27,7 +26,8 @@ import com.example.nguyenducnam_btl.model.PopularFood;
 import com.example.nguyenducnam_btl.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -69,6 +69,9 @@ public class Home extends Fragment {
                 Intent intent = new Intent(getContext(),
                         Info.class);
 
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                System.out.println(currentFirebaseUser.getDisplayName()+" "+ currentFirebaseUser.getEmail());
+
                 db.collection("users")
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -76,6 +79,17 @@ public class Home extends Fragment {
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()) {
                                     for (QueryDocumentSnapshot document : task.getResult()) {
+                                        if(document.getString("userUid").equals(currentFirebaseUser.getUid())) {
+                                            String name = document.getString("name");
+                                            String email = document.getString("email");
+                                            String dob = document.getString("dob");
+
+                                            intent.putExtra("name", name);
+                                            intent.putExtra("email", email);
+                                            intent.putExtra("dob", dob);
+                                            startActivity(intent);
+                                            return;
+                                        }
                                         Log.d("TAG_GET_USER", document.getId() + " => " + document.getData());
                                     }
                                 } else {
@@ -84,7 +98,7 @@ public class Home extends Fragment {
                             }
                         });
 
-                startActivity(intent);
+
             }
         });
     }
@@ -131,8 +145,6 @@ public class Home extends Fragment {
         popularFoodAdapter.updateList(temp2);
     }
 
-
-
     private void setPopularRecycler(List<PopularFood> popularFoodList) {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
@@ -176,7 +188,6 @@ public class Home extends Fragment {
                     }
                 });
     }
-
 
     public void initView(View v) {
         asiaRecycler = v.findViewById(R.id.asia_recycler);

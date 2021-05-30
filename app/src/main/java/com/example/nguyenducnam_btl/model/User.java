@@ -10,6 +10,12 @@ public class User {
         this.email = email;
     }
 
+    public User(String name, String dob, String email) {
+        this.name = name;
+        this.dob = dob;
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +

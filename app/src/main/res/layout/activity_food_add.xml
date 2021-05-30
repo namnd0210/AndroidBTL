@@ -78,16 +78,6 @@
             android:hint="Price" />
 
         <EditText
-            android:id="@+id/etDate"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Date" />
-
-        <EditText
             android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="40dp"

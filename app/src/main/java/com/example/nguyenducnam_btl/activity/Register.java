@@ -48,7 +48,6 @@ public class Register extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        fAuth = FirebaseAuth.getInstance();
         initView();
 
         if (fAuth.getCurrentUser() != null) {
@@ -101,6 +100,7 @@ public class Register extends AppCompatActivity {
                             user.put("email", email);
                             user.put("name", name);
                             user.put("dob", dob);
+                            user.put("userUid", fuser.getUid());
 
                             db.collection("users").add(user)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
