@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1049214074565",
+    "firebase_url": "https://appdemo-514ca-default-rtdb.firebaseio.com",
+    "project_id": "appdemo-514ca",
+    "storage_bucket": "appdemo-514ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049214074565:android:39c4ee120d76cc40407aac",
+        "android_client_info": {
+          "package_name": "com.example.nguyenducnam_btl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049214074565-hgg0494g84mcpp3ktneuc4c3lvpecbtf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOs6zEetzvayW6btizJrV0KHMTICvP0gY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049214074565-hgg0494g84mcpp3ktneuc4c3lvpecbtf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
