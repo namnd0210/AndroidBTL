@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Menu"
-        android:id="@+id/heart"
-        app:showAsAction="always|withText"
-        android:icon="@drawable/ic_heart"/>
+        android:title="Home"
+        android:id="@+id/home"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_home_24"/>
 
     <item
         android:title="Map"
         android:id="@+id/map"
-        app:showAsAction="always|withText"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_map_24"/>
 
 </menu>
