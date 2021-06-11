@@ -1,11 +1,9 @@
 package com.example.nguyenducnam_btl.activity;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -15,13 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nguyenducnam_btl.R;
-import com.example.nguyenducnam_btl.adapter.AsiaFoodAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -34,8 +30,6 @@ public class Add extends AppCompatActivity {
     private ImageView  btnBack;
     private RatingBar rating;
     private Button btnAdd;
-
-    private int mYear, mMonth, mDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +66,7 @@ public class Add extends AppCompatActivity {
                 todo.put("key", keytodo);
 
                 // Add a new document with a generated ID
-                db.collection("food")
+                db.collection("food")   
                         .add(todo)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override

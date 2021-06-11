@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nguyenducnam_btl.R;
 import com.example.nguyenducnam_btl.activity.Detail;
-import com.example.nguyenducnam_btl.model.AsiaFood;
 import com.example.nguyenducnam_btl.model.PopularFood;
 
 import java.util.List;

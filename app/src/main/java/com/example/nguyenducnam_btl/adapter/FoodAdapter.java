@@ -14,16 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nguyenducnam_btl.R;
 import com.example.nguyenducnam_btl.activity.Update;
-import com.example.nguyenducnam_btl.model.AsiaFood;
+import com.example.nguyenducnam_btl.model.Food;
 
 import java.util.List;
 
 
-public class AsiaFoodAdapter extends RecyclerView.Adapter<AsiaFoodAdapter.AsiaFoodViewHolder> {
+public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.AsiaFoodViewHolder> {
     Context context;
-    List<AsiaFood> list;
+    List<Food> list;
 
-    public AsiaFoodAdapter(Context context, List<AsiaFood> list) {
+    public FoodAdapter(Context context, List<Food> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,7 +42,7 @@ public class AsiaFoodAdapter extends RecyclerView.Adapter<AsiaFoodAdapter.AsiaFo
 //        holder.foodImage.setImageResource(list.get(position).getImageUrl());
         holder.foodImage.setImageResource(R.drawable.asiafood1);
         holder.name.setText(list.get(position).getName());
-        holder.price.setText(list.get(position).getPrice());
+        holder.price.setText("$" + list.get(position).getPrice());
         holder.rating.setText(String.valueOf(list.get(position).getRating()));
         holder.description.setText(list.get(position).getDescription());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +71,10 @@ public class AsiaFoodAdapter extends RecyclerView.Adapter<AsiaFoodAdapter.AsiaFo
         return list.size();
     }
 
+    public void updateList(List<Food> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
 
     public static final class AsiaFoodViewHolder extends RecyclerView.ViewHolder {
 
@@ -87,11 +91,6 @@ public class AsiaFoodAdapter extends RecyclerView.Adapter<AsiaFoodAdapter.AsiaFo
             rating = itemView.findViewById(R.id.rating);
             description = itemView.findViewById(R.id.description);
         }
-    }
-
-    public void updateList(List<AsiaFood> list){
-        this.list = list;
-        notifyDataSetChanged();
     }
 
 }

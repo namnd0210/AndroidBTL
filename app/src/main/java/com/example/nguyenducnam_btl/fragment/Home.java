@@ -16,12 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.nguyenducnam_btl.R;
 import com.example.nguyenducnam_btl.activity.Info;
-import com.example.nguyenducnam_btl.adapter.AsiaFoodAdapter;
+import com.example.nguyenducnam_btl.adapter.FoodAdapter;
 import com.example.nguyenducnam_btl.adapter.PopularFoodAdapter;
-import com.example.nguyenducnam_btl.model.AsiaFood;
+import com.example.nguyenducnam_btl.model.Food;
 import com.example.nguyenducnam_btl.model.PopularFood;
 import com.example.nguyenducnam_btl.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,15 +38,16 @@ import java.util.List;
 
 
 public class Home extends Fragment {
-    List<AsiaFood> asiaFoodList;
+    List<Food> foodList;
     List<PopularFood> popularFoodList;
 
     FirebaseFirestore db;
     RecyclerView popularRecycler, asiaRecycler;
     PopularFoodAdapter popularFoodAdapter;
-    AsiaFoodAdapter asiaFoodAdapter;
+    FoodAdapter asiaFoodAdapter;
     EditText searchField;
     ImageView info;
+    TextView total;
     User user;
 
     @Override
@@ -128,9 +130,9 @@ public class Home extends Fragment {
     }
 
     void filter(String text) {
-        List<AsiaFood> temp1 = new ArrayList();
+        List<Food> temp1 = new ArrayList();
         List<PopularFood> temp2 = new ArrayList();
-        for (AsiaFood d : asiaFoodList) {
+        for (Food d : foodList) {
             if (d.getName().toLowerCase().contains(text.toLowerCase())) {
                 temp1.add(d);
             }
@@ -154,7 +156,7 @@ public class Home extends Fragment {
 
     }
 
-    private void setAsiaRecycler(List<AsiaFood> asiaFoodList) {
+    private void setAsiaRecycler(List<Food> foodList) {
         db = FirebaseFirestore.getInstance();
 
         db.collection("food")
@@ -173,14 +175,15 @@ public class Home extends Fragment {
 
                                 System.out.println(description);
 
-                                asiaFoodList.add(new AsiaFood(key, name, price, imageUrl, rating, description));
+                                foodList.add(new Food(key, name, price, imageUrl, rating, description));
                                 Log.d("TAG", document.getId() + " => " + document.getData());
                             }
 
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
                             asiaRecycler.setLayoutManager(layoutManager);
-                            asiaFoodAdapter = new AsiaFoodAdapter(getContext(), asiaFoodList);
+                            asiaFoodAdapter = new FoodAdapter(getContext(), foodList);
                             asiaRecycler.setAdapter(asiaFoodAdapter);
+                            total.setText("Total items: " + foodList.size());
                             asiaFoodAdapter.notifyDataSetChanged();
                         } else {
                             Log.w("TAG", "Error getting documents.", task.getException());
@@ -194,6 +197,7 @@ public class Home extends Fragment {
         popularRecycler = v.findViewById(R.id.popular_recycler);
         searchField = v.findViewById(R.id.searchField);
         info = v.findViewById(R.id.info);
+        total = v.findViewById(R.id.total);
     }
 
 
@@ -207,17 +211,18 @@ public class Home extends Fragment {
 //        asiaFoodList.add(new AsiaFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
 //        asiaFoodList.add(new AsiaFood("Chicago Pizza", "$20", R.drawable.asiafood1, "4.5", "Briand Restaurant"));
 //        asiaFoodList.add(new AsiaFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
-        asiaFoodList = new ArrayList<>();
-        setAsiaRecycler(asiaFoodList);
+        foodList = new ArrayList<>();
+        setAsiaRecycler(foodList);
 
         popularFoodList = new ArrayList<>();
-        popularFoodList.add(new PopularFood("Float Cake Vietnam", "$7.05", R.drawable.popularfood1));
-        popularFoodList.add(new PopularFood("Chiken Drumstick", "$17.05", R.drawable.popularfood2));
-        popularFoodList.add(new PopularFood("Fish Tikka Stick", "$25.05", R.drawable.popularfood3));
-        popularFoodList.add(new PopularFood("Float Cake Vietnam", "$7.05", R.drawable.popularfood1));
-        popularFoodList.add(new PopularFood("Chiken Drumstick", "$17.05", R.drawable.popularfood2));
-        popularFoodList.add(new PopularFood("Fish Tikka Stick", "$25.05", R.drawable.popularfood3));
+        popularFoodList.add(new PopularFood("Float Cake Vietnam 1", "$7.05", R.drawable.popularfood1));
+        popularFoodList.add(new PopularFood("Chiken Drumstick 1", "$17.05", R.drawable.popularfood2));
+        popularFoodList.add(new PopularFood("Fish Tikka Stick 2", "$25.05", R.drawable.popularfood3));
+        popularFoodList.add(new PopularFood("Float Cake Vietnam 2", "$7.05", R.drawable.popularfood1));
+        popularFoodList.add(new PopularFood("Chiken Drumstick 3", "$17.05", R.drawable.popularfood2));
+        popularFoodList.add(new PopularFood("Fish Tikka Stick 3", "$25.05", R.drawable.popularfood3));
 
         setPopularRecycler(popularFoodList);
+
     }
 }

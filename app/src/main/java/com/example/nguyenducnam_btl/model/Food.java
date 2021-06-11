@@ -1,6 +1,6 @@
 package com.example.nguyenducnam_btl.model;
 
-public class AsiaFood {
+public class Food {
     String key;
     String name;
     String price;
@@ -8,7 +8,7 @@ public class AsiaFood {
     String rating;
     String description;
 
-    public AsiaFood(String key, String name, String price, Integer imageUrl, String rating, String description) {
+    public Food(String key, String name, String price, Integer imageUrl, String rating, String description) {
         this.key = key;
         this.name = name;
         this.price = price;
