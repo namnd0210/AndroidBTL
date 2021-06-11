@@ -86,6 +86,8 @@ public class Home extends Fragment {
                                             String email = document.getString("email");
                                             String dob = document.getString("dob");
 
+                                            System.out.println(currentFirebaseUser.getUid());
+                                            intent.putExtra("userUid", currentFirebaseUser.getUid());
                                             intent.putExtra("name", name);
                                             intent.putExtra("email", email);
                                             intent.putExtra("dob", dob);
@@ -215,12 +217,12 @@ public class Home extends Fragment {
         setAsiaRecycler(foodList);
 
         popularFoodList = new ArrayList<>();
-        popularFoodList.add(new PopularFood("Float Cake Vietnam 1", "$7.05", R.drawable.popularfood1));
-        popularFoodList.add(new PopularFood("Chiken Drumstick 1", "$17.05", R.drawable.popularfood2));
-        popularFoodList.add(new PopularFood("Fish Tikka Stick 2", "$25.05", R.drawable.popularfood3));
-        popularFoodList.add(new PopularFood("Float Cake Vietnam 2", "$7.05", R.drawable.popularfood1));
-        popularFoodList.add(new PopularFood("Chiken Drumstick 3", "$17.05", R.drawable.popularfood2));
-        popularFoodList.add(new PopularFood("Fish Tikka Stick 3", "$25.05", R.drawable.popularfood3));
+        popularFoodList.add(new PopularFood("Float Cake Vietnam", "$7.05", R.drawable.popularfood1));
+        popularFoodList.add(new PopularFood("Chiken Drumstick", "$17.05", R.drawable.popularfood2));
+        popularFoodList.add(new PopularFood("Fish Tikka Stick", "$25.05", R.drawable.popularfood3));
+        popularFoodList.add(new PopularFood("Float Cake Vietnam", "$7.05", R.drawable.popularfood1));
+        popularFoodList.add(new PopularFood("Chiken Drumstick", "$17.05", R.drawable.popularfood2));
+        popularFoodList.add(new PopularFood("Fish Tikka Stick", "$25.05", R.drawable.popularfood3));
 
         setPopularRecycler(popularFoodList);
 

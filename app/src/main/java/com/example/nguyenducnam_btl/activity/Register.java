@@ -118,7 +118,7 @@ public class Register extends AppCompatActivity {
 
                             Toast.makeText(getBaseContext(),
                                     "Succsessful!!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(Register.this, MainActivity.class));
                         } else {
                             System.out.println("Error: " + task.getException().getMessage());
                             Toast.makeText(getBaseContext(), "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
